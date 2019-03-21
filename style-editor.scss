@@ -780,6 +780,7 @@ ul.wp-block-archives,
 			padding-right: 0;
 		}
 
+		// Inner blocks container width.
 		// TODO: Figure out how to be less specific about this override.
 		.editor-block-list__block-edit > div > .wp-block-section > .editor-inner-blocks {
 			width: 80%;
@@ -812,6 +813,7 @@ ul.wp-block-archives,
 		}
 
 		// Child blocks: Full alignment
+		// TODO: Figure out how to be less specific about this override.
 		> .editor-block-list__block-edit > div > .wp-block-section > .editor-inner-blocks > .editor-block-list__layout > .wp-block[data-align=full] {
 			position: relative;
 			padding-left: 0;
