@@ -778,6 +778,76 @@
 		}
 	}
 
+	//! Section
+	$section-block__padding: 1em;
+
+	.wp-block-section {
+		padding: $section-block__padding;
+
+		// Child blocks: Wide & full
+		> .alignwide,
+		> .alignfull,
+		> .wp-block-image.alignwide img,
+		> .wp-block-image.alignfull img {
+			width: calc( 100% + #{$section-block__padding} );
+			max-width: calc( 100% + #{$section-block__padding} );
+			margin-left: -#{$section-block__padding / 2};
+		}
+
+		// Wide alignment
+		&.alignwide,
+		&.alignfull { 
+
+			// Child blocks: All alignments
+			> * {
+				@include media(tablet) {
+					max-width: calc( #{$size__site-tablet-content} - #{$section-block__padding * 2} );
+				}
+
+				@include media(desktop) {
+					max-width: calc( #{$size__site-desktop-content} - #{$section-block__padding * 2} );
+				}
+			}
+		}
+
+		// Full Alignment
+		&.alignfull { 
+			width: 100vw;
+			max-width: 100vw;
+
+			// Child blocks: All alignments except full
+			> *:not(.alignfull) {
+				@include postContentMaxWidth();
+
+				@include media(tablet) {
+					margin-left: calc( 10vw + #{$section-block__padding * 2} - 6px);
+					margin-right: calc( 10vw + #{$section-block__padding * 2} - 6px);
+				}
+			}
+
+			// Child blocks: Wide alignments
+			> .alignwide {
+				@include media(tablet) {
+					max-width: calc( 80vw - #{$section-block__padding * 6} + 12px);
+
+					&.wp-block-image img {
+						margin-left: 0;
+						max-width: 100%;
+					}
+				}
+			}
+
+			// Child blocks: Full alignment
+			> .alignfull,
+			> .wp-block-image.alignfull img {
+				width: calc( 100% + #{$section-block__padding} );
+				max-width: calc( 100% + #{$section-block__padding} );
+				margin-left: -#{$section-block__padding / 2};
+			}
+		}
+		
+	}
+
 	//! Latest Comments
 	.wp-block-latest-comments {
 
