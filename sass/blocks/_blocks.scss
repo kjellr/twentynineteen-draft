@@ -785,21 +785,23 @@
 		padding: $section-block__padding;
 
 		// Child blocks: Wide & full
-		> .alignwide,
-		> .alignfull,
-		> .wp-block-image.alignwide img,
-		> .wp-block-image.alignfull img {
-			width: calc( 100% + #{$section-block__padding} );
-			max-width: calc( 100% + #{$section-block__padding} );
-			margin-left: -#{$section-block__padding / 2};
+		> .alignfull {
+			width: calc( 100% + #{$section-block__padding * 2} );
+			max-width: calc( 100% + #{$section-block__padding * 2} );
+			margin-left: -#{$section-block__padding};
+
+			&.wp-block-image img,
+			&.wp-block-image img {
+				max-width: 100%;
+			}
 		}
 
-		// Wide alignment
+		// Wide & full alignments
 		&.alignwide,
 		&.alignfull { 
 
-			// Child blocks: All alignments
-			> * {
+			// Child blocks: Default alignments
+			> *:not(.alignwide):not(.alignfull) {
 				@include media(tablet) {
 					max-width: calc( #{$size__site-tablet-content} - #{$section-block__padding * 2} );
 				}
@@ -840,9 +842,9 @@
 			// Child blocks: Full alignment
 			> .alignfull,
 			> .wp-block-image.alignfull img {
-				width: calc( 100% + #{$section-block__padding} );
-				max-width: calc( 100% + #{$section-block__padding} );
-				margin-left: -#{$section-block__padding / 2};
+				width: calc( 100% + #{$section-block__padding * 2} );
+				max-width: calc( 100% + #{$section-block__padding * 2} );
+				margin-left: -#{$section-block__padding};
 			}
 		}
 		
