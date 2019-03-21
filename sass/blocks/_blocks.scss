@@ -783,7 +783,7 @@
 	.wp-block-section {
 		padding: $size__spacing-unit;
 
-		// Child blocks: Wide & full
+		// Child blocks: Full alignment
 		> .alignfull {
 			width: calc( 100% + #{$size__spacing-unit * 2} );
 			max-width: calc( 100% + #{$size__spacing-unit * 2} );
@@ -795,9 +795,8 @@
 			}
 		}
 
-		// Wide & full alignments
-		&.alignwide,
-		&.alignfull { 
+		// Wide alignment
+		&.alignwide { 
 
 			// Child blocks: Default alignments
 			> *:not(.alignwide):not(.alignfull) {
