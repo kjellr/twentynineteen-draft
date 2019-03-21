@@ -6034,13 +6034,13 @@ body.page .main-navigation {
 }
 
 .entry .entry-content .wp-block-section {
-  padding: 1em;
+  padding: 1rem;
 }
 
 .entry .entry-content .wp-block-section > .alignfull {
-  width: calc( 100% + 2em);
-  max-width: calc( 100% + 2em);
-  margin-right: -1em;
+  width: calc( 100% + 2rem);
+  max-width: calc( 100% + 2rem);
+  margin-right: -1rem;
 }
 
 .entry .entry-content .wp-block-section > .alignfull.wp-block-image img,
@@ -6050,13 +6050,13 @@ body.page .main-navigation {
 
 @media only screen and (min-width: 768px) {
   .entry .entry-content .wp-block-section.alignwide > *:not(.alignwide):not(.alignfull), .entry .entry-content .wp-block-section.alignfull > *:not(.alignwide):not(.alignfull) {
-    max-width: calc( calc(8 * (100vw / 12) - 28px) - 2em);
+    max-width: calc( calc(8 * (100vw / 12) - 28px) - 2rem);
   }
 }
 
 @media only screen and (min-width: 1168px) {
   .entry .entry-content .wp-block-section.alignwide > *:not(.alignwide):not(.alignfull), .entry .entry-content .wp-block-section.alignfull > *:not(.alignwide):not(.alignfull) {
-    max-width: calc( calc(6 * (100vw / 12) - 28px) - 2em);
+    max-width: calc( calc(6 * (100vw / 12) - 28px) - 2rem);
   }
 }
 
@@ -6079,14 +6079,14 @@ body.page .main-navigation {
 
 @media only screen and (min-width: 768px) {
   .entry .entry-content .wp-block-section.alignfull > *:not(.alignfull) {
-    margin-right: calc( 10vw + 2em - 6px);
-    margin-left: calc( 10vw + 2em - 6px);
+    margin-right: calc( 10vw + 2rem - 6px);
+    margin-left: calc( 10vw + 2rem - 6px);
   }
 }
 
 @media only screen and (min-width: 768px) {
   .entry .entry-content .wp-block-section.alignfull > .alignwide {
-    max-width: calc( 80vw - 6em + 12px);
+    max-width: calc( 80vw - 6rem + 12px);
   }
   .entry .entry-content .wp-block-section.alignfull > .alignwide.wp-block-image img {
     margin-right: 0;
@@ -6096,9 +6096,9 @@ body.page .main-navigation {
 
 .entry .entry-content .wp-block-section.alignfull > .alignfull,
 .entry .entry-content .wp-block-section.alignfull > .wp-block-image.alignfull img {
-  width: calc( 100% + 2em);
-  max-width: calc( 100% + 2em);
-  margin-right: -1em;
+  width: calc( 100% + 2rem);
+  max-width: calc( 100% + 2rem);
+  margin-right: -1rem;
 }
 
 .entry .entry-content .wp-block-latest-comments .wp-block-latest-comments__comment-meta {

@@ -779,16 +779,15 @@
 	}
 
 	//! Section
-	$section-block__padding: 1em;
 
 	.wp-block-section {
-		padding: $section-block__padding;
+		padding: $size__spacing-unit;
 
 		// Child blocks: Wide & full
 		> .alignfull {
-			width: calc( 100% + #{$section-block__padding * 2} );
-			max-width: calc( 100% + #{$section-block__padding * 2} );
-			margin-left: -#{$section-block__padding};
+			width: calc( 100% + #{$size__spacing-unit * 2} );
+			max-width: calc( 100% + #{$size__spacing-unit * 2} );
+			margin-left: -#{$size__spacing-unit};
 
 			&.wp-block-image img,
 			&.wp-block-image img {
@@ -803,11 +802,11 @@
 			// Child blocks: Default alignments
 			> *:not(.alignwide):not(.alignfull) {
 				@include media(tablet) {
-					max-width: calc( #{$size__site-tablet-content} - #{$section-block__padding * 2} );
+					max-width: calc( #{$size__site-tablet-content} - #{$size__spacing-unit * 2} );
 				}
 
 				@include media(desktop) {
-					max-width: calc( #{$size__site-desktop-content} - #{$section-block__padding * 2} );
+					max-width: calc( #{$size__site-desktop-content} - #{$size__spacing-unit * 2} );
 				}
 			}
 		}
@@ -822,15 +821,15 @@
 				@include postContentMaxWidth();
 
 				@include media(tablet) {
-					margin-left: calc( 10vw + #{$section-block__padding * 2} - 6px);
-					margin-right: calc( 10vw + #{$section-block__padding * 2} - 6px);
+					margin-left: calc( 10vw + #{$size__spacing-unit * 2} - 6px);
+					margin-right: calc( 10vw + #{$size__spacing-unit * 2} - 6px);
 				}
 			}
 
 			// Child blocks: Wide alignments
 			> .alignwide {
 				@include media(tablet) {
-					max-width: calc( 80vw - #{$section-block__padding * 6} + 12px);
+					max-width: calc( 80vw - #{$size__spacing-unit * 6} + 12px);
 
 					&.wp-block-image img {
 						margin-left: 0;
@@ -842,9 +841,9 @@
 			// Child blocks: Full alignment
 			> .alignfull,
 			> .wp-block-image.alignfull img {
-				width: calc( 100% + #{$section-block__padding * 2} );
-				max-width: calc( 100% + #{$section-block__padding * 2} );
-				margin-left: -#{$section-block__padding};
+				width: calc( 100% + #{$size__spacing-unit * 2} );
+				max-width: calc( 100% + #{$size__spacing-unit * 2} );
+				margin-left: -#{$size__spacing-unit};
 			}
 		}
 		
