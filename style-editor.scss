@@ -739,3 +739,207 @@ ul.wp-block-archives,
 		}
 	}
 }
+
+/** === Section Block === */
+
+.wp-block[data-type="core/section"] {
+
+	// This matches the 22px value for 1rem that we use on the front end.
+	$section-block__padding: $font__size_base;
+	
+	.wp-block-section {
+		padding: $section-block__padding;
+	}
+
+	// Child: Full alignment;
+	.wp-block[data-align="full"] {
+		left: -$section-block__padding;
+		width: calc( 100% + #{$section-block__padding * 2} );
+	}
+
+	// Wide and full alignments
+	&[data-align="wide"] {
+
+		// Child blocks: Default alignments
+		.wp-block:not([data-align="wide"]):not([data-align="full"]) {
+			@include media(tablet) {
+				width: calc(8 * (100vw / 12) - #{$section-block__padding * 2} );
+			}
+
+			@include media(desktop) {
+				width: calc(6 * (100vw / 12 ) - #{$section-block__padding * 2} );
+			}
+		}
+	}
+
+	// Full alignment
+	&[data-align="full"] {
+
+		.wp-block-section {
+			padding-left: 0;
+			padding-right: 0;
+		}
+
+		// TODO: Figure out how to be less specific about this override.
+		.editor-block-list__block-edit > div > .wp-block-section > .editor-inner-blocks {
+			width: 80%;
+			margin-left: 10%;
+			margin-right: 10%;
+			padding-left: 64px;
+			padding-right: 64px;
+		}
+
+		// Child blocks: All alignments except full
+		.wp-block:not([data-align="full"]) {
+
+			@include media(tablet) {
+				max-width: calc( #{$size__site-tablet-content} + #{$section-block__padding} + 5px );
+			}
+
+			@include media(desktop) {
+				max-width:  calc( #{$size__site-desktop-content} + #{$section-block__padding} + 5px );
+			}
+		}
+
+		// Child blocks: Wide alignments
+		.wp-block[data-align="wide"] {
+			
+			// TODO: Figure out why this needs to be 3px.
+			@include media(tablet) {
+				width: calc( 100% + 3px );
+				max-width: calc( 100% + 3px );
+			}
+		}
+
+		// Child blocks: Full alignment
+		> .editor-block-list__block-edit > div > .wp-block-section > .editor-inner-blocks > .editor-block-list__layout > .wp-block[data-align=full] {
+			position: relative;
+			padding-left: 0;
+			padding-right: 0;
+			width: calc(125% + 122px);
+			left: calc(-12.5% - 60px);
+			max-width: calc(125% + 121px);
+		}
+	}
+
+}
+
+///** === Section Block === */
+//
+//.wp-block[data-type="core/section"] {
+//
+//	// Child: Wide Alignment
+//	.wp-block[data-align="wide"] {
+//		@include media(mobile) {
+//			padding-left: 28px;
+//			padding-right: 28px;
+//		}
+//	}
+//
+//	// Child: Full Alignment
+//	.editor-block-list__layout > .wp-block[data-align="full"] {
+//		left: auto;
+//		max-width: 100%;
+//		margin-left: 0;
+//		margin-right: 0;
+//		padding-left: 0;
+//		padding-right: 0;
+//
+//		.editor-block-list__block-edit {
+//			margin-left: 0;
+//			margin-right: 0;
+//		}
+//	}
+//}
+//
+//// Section Wide Alignment
+//.wp-block[data-type="core/section"][data-align="wide"] {
+//
+//	// Child: Standard Alignment
+//	.wp-block:not([data-align="wide"]):not([data-align="full"]) {
+//		
+//		// Gutenberg's break-wide() breakpoint.
+//		@media screen and (min-width: 1280px) {
+//			width: calc((8 * (100vw / 12 ) ) - 14px);
+//		}
+//
+//		// Gutenberg's break-xlarge() breakpoint.
+//		@media screen and (min-width: 1100px) {
+//			width: 100%;
+//			max-width: calc((6 * (100vw / 12 ) ) - 14px);
+//		}
+//	}
+//}
+//
+//// Section Full Alignment
+//.wp-block[data-type="core/section"][data-align="full"] {
+//
+//	// Inner Blocks centering content within the editor
+//	.editor-inner-blocks {
+//		margin-left: auto;
+//		margin-right: auto;
+//		padding-left: 7px;
+//		padding-right: 7px;
+//		width: calc(100vw - (2 * 1rem));
+//
+//		@include media(mobile) {
+//			padding-left: 35px;
+//			padding-right: 35px;
+//		}
+//
+//		// Gutenberg's medium() breakpoint.
+//		@media screen and (min-width: 782px) {
+//			padding-left: 52px;
+//			padding-right: 48px;
+//			width: 80%;
+//		}
+//
+//		.editor-block-list__layout {
+//			margin-left: -4px;
+//			margin-right: -4px;
+//		}
+//	}
+//
+//	// Cancel edge padding when filling the viewport
+//	.wp-block-section {
+//		padding-left: 0;
+//		padding-right: 0;
+//	}
+//
+//	// Standard
+//	.wp-block:not([data-align="wide"]):not([data-align="full"]) {
+//		
+//		// Gutenberg's break-wide() breakpoint.
+//		@media screen and (min-width: 1280px) {
+//			width: calc((8 * (100vw / 12 ) ));
+//		}
+//
+//		// Gutenberg's break-xlarge() breakpoint.
+//		@media screen and (min-width: 1100px) {
+//			width: 100%;
+//			max-width: calc((6 * (100vw / 12 ) ));
+//		}
+//	}
+//
+//	// Wide
+//	.wp-block[data-align="wide"] {
+//		width: 100%;
+//
+//
+//		@include media(mobile) {
+//			padding-left: 43px;
+//			padding-right: 45px;
+//		}
+//	}
+//
+//	// Full
+//	.wp-block[data-align="full"] {
+//		position: relative;
+//		padding-left: 0;
+//		padding-right: 0;
+//		width: calc(125% + 116px);
+//		left: calc(-12.5% - 57px);
+//		max-width: calc(125% + 116px);
+//	}
+//}
+//

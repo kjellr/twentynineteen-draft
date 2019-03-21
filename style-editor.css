@@ -1293,3 +1293,66 @@ ul.wp-block-archives li ul,
   line-height: 1.6;
   color: #767676;
 }
+
+/** === Section Block === */
+.wp-block[data-type="core/section"] .wp-block-section {
+  padding: 22px;
+}
+
+.wp-block[data-type="core/section"] .wp-block[data-align="full"] {
+  left: -22px;
+  width: calc( 100% + 44px);
+}
+
+@media only screen and (min-width: 768px) {
+  .wp-block[data-type="core/section"][data-align="wide"] .wp-block:not([data-align="wide"]):not([data-align="full"]) {
+    width: calc(8 * (100vw / 12) - 44px);
+  }
+}
+
+@media only screen and (min-width: 1168px) {
+  .wp-block[data-type="core/section"][data-align="wide"] .wp-block:not([data-align="wide"]):not([data-align="full"]) {
+    width: calc(6 * (100vw / 12 ) - 44px);
+  }
+}
+
+.wp-block[data-type="core/section"][data-align="full"] .wp-block-section {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.wp-block[data-type="core/section"][data-align="full"] .editor-block-list__block-edit > div > .wp-block-section > .editor-inner-blocks {
+  width: 80%;
+  margin-left: 10%;
+  margin-right: 10%;
+  padding-left: 64px;
+  padding-right: 64px;
+}
+
+@media only screen and (min-width: 768px) {
+  .wp-block[data-type="core/section"][data-align="full"] .wp-block:not([data-align="full"]) {
+    max-width: calc( calc(8 * (100vw / 12) - 28px) + 22px + 5px);
+  }
+}
+
+@media only screen and (min-width: 1168px) {
+  .wp-block[data-type="core/section"][data-align="full"] .wp-block:not([data-align="full"]) {
+    max-width: calc( calc(6 * (100vw / 12) - 28px) + 22px + 5px);
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .wp-block[data-type="core/section"][data-align="full"] .wp-block[data-align="wide"] {
+    width: calc( 100% + 3px);
+    max-width: calc( 100% + 3px);
+  }
+}
+
+.wp-block[data-type="core/section"][data-align="full"] > .editor-block-list__block-edit > div > .wp-block-section > .editor-inner-blocks > .editor-block-list__layout > .wp-block[data-align=full] {
+  position: relative;
+  padding-left: 0;
+  padding-right: 0;
+  width: calc(125% + 122px);
+  left: calc(-12.5% - 60px);
+  max-width: calc(125% + 121px);
+}
