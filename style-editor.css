@@ -1323,11 +1323,18 @@ ul.wp-block-archives li ul,
 }
 
 .wp-block[data-type="core/section"][data-align="full"] .editor-block-list__block-edit > div > .wp-block-section > .editor-inner-blocks {
-  width: 80%;
-  margin-left: 10%;
-  margin-right: 10%;
-  padding-left: 64px;
-  padding-right: 64px;
+  padding-left: 22px;
+  padding-right: 22px;
+}
+
+@media only screen and (min-width: 600px) {
+  .wp-block[data-type="core/section"][data-align="full"] .editor-block-list__block-edit > div > .wp-block-section > .editor-inner-blocks {
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+    padding-left: 64px;
+    padding-right: 64px;
+  }
 }
 
 @media only screen and (min-width: 768px) {
@@ -1353,7 +1360,14 @@ ul.wp-block-archives li ul,
   position: relative;
   padding-left: 0;
   padding-right: 0;
-  width: calc(125% + 122px);
-  left: calc(-12.5% - 60px);
-  max-width: calc(125% + 121px);
+  max-width: calc( 100% + 14px);
+  left: -7px;
+}
+
+@media only screen and (min-width: 600px) {
+  .wp-block[data-type="core/section"][data-align="full"] > .editor-block-list__block-edit > div > .wp-block-section > .editor-inner-blocks > .editor-block-list__layout > .wp-block[data-align=full] {
+    width: calc(125% + 122px);
+    left: calc(-12.5% - 60px);
+    max-width: calc(125% + 121px);
+  }
 }

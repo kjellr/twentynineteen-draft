@@ -784,11 +784,16 @@ ul.wp-block-archives,
 		// Inner blocks container width.
 		// TODO: Figure out how to be less specific about this override.
 		.editor-block-list__block-edit > div > .wp-block-section > .editor-inner-blocks {
-			width: 80%;
-			margin-left: 10%;
-			margin-right: 10%;
-			padding-left: 64px;
-			padding-right: 64px;
+			padding-left: $section-block__padding;
+			padding-right: $section-block__padding;
+
+			@include media(mobile) {
+				width: 80%;
+				margin-left: 10%;
+				margin-right: 10%;
+				padding-left: 64px;
+				padding-right: 64px;
+			}
 		}
 
 		// Child blocks: All alignments except full
@@ -819,9 +824,14 @@ ul.wp-block-archives,
 			position: relative;
 			padding-left: 0;
 			padding-right: 0;
-			width: calc(125% + 122px);
-			left: calc(-12.5% - 60px);
-			max-width: calc(125% + 121px);
+			max-width: calc( 100% + 14px);
+			left: -7px;
+
+			@include media(mobile) {
+				width: calc(125% + 122px);
+				left: calc(-12.5% - 60px);
+				max-width: calc(125% + 121px);
+			}
 		}
 	}
 
