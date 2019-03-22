@@ -755,6 +755,7 @@ ul.wp-block-archives,
 	.wp-block[data-align="full"] {
 		left: -$section-block__padding;
 		width: calc( 100% + #{$section-block__padding * 2} );
+		max-width: calc( 100% + #{$section-block__padding * 2} );
 	}
 
 	// Wide and full alignments

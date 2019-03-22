@@ -1302,6 +1302,7 @@ ul.wp-block-archives li ul,
 .wp-block[data-type="core/section"] .wp-block[data-align="full"] {
   left: -22px;
   width: calc( 100% + 44px);
+  max-width: calc( 100% + 44px);
 }
 
 @media only screen and (min-width: 768px) {
