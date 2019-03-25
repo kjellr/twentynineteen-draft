@@ -745,7 +745,6 @@ ul.wp-block-archives,
 .wp-block[data-type="core/section"] {
 
 	// This matches the 22px value for 1rem that we use on the front end.
-	$section-block__padding: 14px;
 	$section-block-background__padding: $font__size_base;
 
 	// Child: Full alignment
@@ -806,8 +805,8 @@ ul.wp-block-archives,
 		// Inner blocks container width.
 		// TODO: Figure out how to be less specific about this override.
 		.editor-block-list__block-edit > div > .wp-block-section > .editor-inner-blocks {
-			padding-left: $section-block__padding;
-			padding-right: $section-block__padding;
+			padding-left: 14px;
+			padding-right: 14px;
 
 			@include media(mobile) {
 				width: 80%;
@@ -822,11 +821,11 @@ ul.wp-block-archives,
 		.wp-block:not([data-align="full"]) {
 
 			@include media(tablet) {
-				max-width: calc( #{$size__site-tablet-content} + #{$section-block__padding * 2} );
+				max-width: calc( #{$size__site-tablet-content} + 28px );
 			}
 
 			@include media(desktop) {
-				max-width:  calc( #{$size__site-desktop-content} + #{$section-block__padding * 2} );
+				max-width:  calc( #{$size__site-desktop-content} + 28px );
 			}
 		}
 
@@ -857,17 +856,19 @@ ul.wp-block-archives,
 		}
 
 		//Section block with background color
-		//Child blocks: All alignments except full & wide
-		.wp-block-section.has-background .wp-block:not([data-align="full"]):not([data-align="wide"]) {
+		.wp-block-section.has-background {
 
-			@include media(tablet) {
-				max-width: calc( #{$size__site-tablet-content} + #{$section-block-background__padding} + 5px );
-			}
+			//Child blocks: All alignments except full & wide
+			.wp-block:not([data-align="full"]):not([data-align="wide"]) {
 
-			@include media(desktop) {
-				max-width:  calc( #{$size__site-desktop-content} + #{$section-block-background__padding} + 5px );
+				@include media(tablet) {
+					max-width: calc( #{$size__site-tablet-content} + #{$section-block-background__padding} + 5px );
+				}
+
+				@include media(desktop) {
+					max-width:  calc( #{$size__site-desktop-content} + #{$section-block-background__padding} + 5px );
+				}
 			}
 		}
 	}
-
 }
