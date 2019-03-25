@@ -781,15 +781,10 @@
 	//! Section
 
 	.wp-block-section {
-		padding: $size__spacing-unit;
 
 		// Child blocks: Full alignment
 		> .alignfull {
-			width: calc( 100% + #{$size__spacing-unit * 2} );
-			max-width: calc( 100% + #{$size__spacing-unit * 2} );
-			margin-left: -#{$size__spacing-unit};
 
-			&.wp-block-image img,
 			&.wp-block-image img {
 				max-width: 100%;
 			}
@@ -800,13 +795,7 @@
 
 			// Child blocks: Default alignments
 			> *:not(.alignwide):not(.alignfull) {
-				@include media(tablet) {
-					max-width: calc( #{$size__site-tablet-content} - #{$size__spacing-unit * 2} );
-				}
-
-				@include media(desktop) {
-					max-width: calc( #{$size__site-desktop-content} - #{$size__spacing-unit * 2} );
-				}
+				@include postContentMaxWidth();
 			}
 		}
 
@@ -817,18 +806,21 @@
 
 			// Child blocks: All alignments except full
 			> *:not(.alignfull) {
+				margin-left: $size__spacing-unit;
+				margin-right: $size__spacing-unit;
+
 				@include postContentMaxWidth();
 
 				@include media(tablet) {
-					margin-left: calc( 10vw + #{$size__spacing-unit * 2} - 6px);
-					margin-right: calc( 10vw + #{$size__spacing-unit * 2} - 6px);
+					margin-left: calc( 10vw + 58px);
+					margin-right: calc( 10vw + 58px);
 				}
 			}
 
 			// Child blocks: Wide alignments
 			> .alignwide {
 				@include media(tablet) {
-					max-width: calc( 80vw - #{$size__spacing-unit * 6} + 12px);
+					max-width: calc( 80vw - #{$size__spacing-unit * 6});
 
 					&.wp-block-image img {
 						margin-left: 0;
@@ -836,13 +828,44 @@
 					}
 				}
 			}
+		}
+
+		&.has-background {
+			padding: $size__spacing-unit;
 
 			// Child blocks: Full alignment
-			> .alignfull,
-			> .wp-block-image.alignfull img {
+			> .alignfull {
 				width: calc( 100% + #{$size__spacing-unit * 2} );
 				max-width: calc( 100% + #{$size__spacing-unit * 2} );
 				margin-left: -#{$size__spacing-unit};
+			}
+
+			// Wide alignment
+			&.alignwide { 
+
+				// Child blocks: Default alignments
+				> *:not(.alignwide):not(.alignfull) {
+					@include media(tablet) {
+						max-width: calc( #{$size__site-tablet-content} - #{$size__spacing-unit * 2} );
+					}
+
+					@include media(desktop) {
+						max-width: calc( #{$size__site-desktop-content} - #{$size__spacing-unit * 2} );
+					}
+				}
+			}
+
+			// Full Alignment
+			&.alignfull { 
+
+				// Child blocks: All alignments except full
+				> *:not(.alignfull) {
+
+					@include media(tablet) {
+						margin-left: calc( 10vw + #{$size__spacing-unit * 2} - 6px);
+						margin-right: calc( 10vw + #{$size__spacing-unit * 2} - 6px);
+					}
+				}
 			}
 		}
 		
