@@ -797,6 +797,14 @@ ul.wp-block-archives,
 	// Full alignment
 	&[data-align="full"] {
 
+		// Max-width needs to be a pixel narrower than usual to prevent horizontal scrolling.
+		@include media(mobile) {
+			max-width: calc( 100% + 89px);
+		}
+		@include media(tablet) {
+			max-width: calc( 125% + 114px);
+		}
+
 		.wp-block-section {
 			padding-left: 0;
 			padding-right: 0;
@@ -849,9 +857,9 @@ ul.wp-block-archives,
 			left: -7px;
 
 			@include media(mobile) {
-				width: calc(125% + 120px);
-				left: calc(-12.5% - 60px);
-				max-width: calc(125% + 120px);
+				width: calc(125% + 119px);
+				left: calc(-12.5% - 58px);
+				max-width: calc(125% + 118px);
 			}
 		}
 
