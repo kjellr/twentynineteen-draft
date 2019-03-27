@@ -744,14 +744,18 @@ ul.wp-block-archives,
 
 .wp-block[data-type="core/section"] {
 
-	// This matches the 22px value for 1rem that we use on the front end.
-	$section-block-background__padding: $font__size_base;
+	// Section block base styles.
+	> .editor-block-list__block-edit > div > .wp-block-section {
+		
+		// This matches the 22px value for 1rem that we use on the front end.
+		$section-block-background__padding: $font__size_base;
 
-	// Child: Full alignment
-	> .editor-block-list__block-edit > div > .wp-block-section > .editor-inner-blocks > .editor-block-list__layout > .wp-block[data-align="full"] {
-		left: 0;
+		// Child: Full alignment
+		> .editor-inner-blocks > .editor-block-list__layout > .wp-block[data-align="full"] {
+			left: 0;
+		}
 	}
-	
+
 	// Section block with background color
 	> .editor-block-list__block-edit > div > .wp-block-section.has-background {
 		padding: $section-block-background__padding;
@@ -767,14 +771,18 @@ ul.wp-block-archives,
 	// Wide and full alignments
 	&[data-align="wide"] {
 
-		// Child blocks: Default alignments
-		> .editor-block-list__block-edit > div > .wp-block-section > .editor-inner-blocks > .editor-block-list__layout > .wp-block:not([data-align="wide"]):not([data-align="full"]) {
-			@include media(tablet) {
-				width: calc(8 * (100vw / 12) );
-			}
+		// Section block base styles.
+		> .editor-block-list__block-edit > div > .wp-block-section {
 
-			@include media(desktop) {
-				width: calc(6 * (100vw / 12 ) );
+			// Child blocks: Default alignments
+			> .editor-inner-blocks > .editor-block-list__layout > .wp-block:not([data-align="wide"]):not([data-align="full"]) {
+				@include media(tablet) {
+					width: calc(8 * (100vw / 12) );
+				}
+
+				@include media(desktop) {
+					width: calc(6 * (100vw / 12 ) );
+				}
 			}
 		}
 
@@ -805,68 +813,70 @@ ul.wp-block-archives,
 			max-width: calc( 125% + 114px);
 		}
 
-		.editor-block-list__block-edit > div > .wp-block-section {
+		// Section block base styles.
+		> .editor-block-list__block-edit > div > .wp-block-section {
 			padding-left: 0;
 			padding-right: 0;
-		}
 
-		// Inner blocks container width.
-		// TODO: Figure out how to be less specific about this override.
-		.editor-block-list__block-edit > div > .wp-block-section > .editor-inner-blocks {
-			padding-left: 14px;
-			padding-right: 14px;
+			// Inner blocks container width.
+			> .editor-inner-blocks {
+				padding-left: 14px;
+				padding-right: 14px;
 
-			@include media(mobile) {
-				width: 80%;
-				margin-left: 10%;
-				margin-right: 10%;
-				padding-left: 63px;
-				padding-right: 63px;
+				@include media(mobile) {
+					width: 80%;
+					margin-left: 10%;
+					margin-right: 10%;
+					padding-left: 63px;
+					padding-right: 63px;
+				}
+
+				> .editor-block-list__layout {
+
+					// Child blocks: All alignments except full
+					> .wp-block:not([data-align="full"]) {
+
+						@include media(tablet) {
+							max-width: calc( #{$size__site-tablet-content} + 28px );
+						}
+
+						@include media(desktop) {
+							max-width:  calc( #{$size__site-desktop-content} + 28px );
+						}
+					}
+
+					// Child blocks: Wide alignments
+					> .wp-block[data-align="wide"] {
+					
+						// TODO: Figure out why this needs to be 3px.
+						@include media(tablet) {
+							width: calc( 100% + 3px );
+							max-width: calc( 100% + 3px );
+						}
+					}
+
+					// Child blocks: Full alignments
+					> .wp-block[data-align=full] {
+						position: relative;
+						padding-left: 0;
+						padding-right: 0;
+						max-width: calc( 100% + 14px);
+						left: -7px;
+
+						@include media(mobile) {
+							width: calc(125% + 119px);
+							left: calc(-12.5% - 58px);
+							max-width: calc(125% + 118px); // Subtract 1px here to avoid the rounding errors that happen due to the usage of percentages.
+						}
+					}
+				}
 			}
 		}
 
-		// Child blocks: All alignments except full
-		> .editor-block-list__block-edit > div > .wp-block-section > .editor-inner-blocks > .editor-block-list__layout > .wp-block:not([data-align="full"]) {
-
-			@include media(tablet) {
-				max-width: calc( #{$size__site-tablet-content} + 28px );
-			}
-
-			@include media(desktop) {
-				max-width:  calc( #{$size__site-desktop-content} + 28px );
-			}
-		}
-
-		// Child blocks: Wide alignments
-		> .editor-block-list__block-edit > div > .wp-block-section > .editor-inner-blocks > .editor-block-list__layout > .wp-block[data-align="wide"] {
-			
-			// TODO: Figure out why this needs to be 3px.
-			@include media(tablet) {
-				width: calc( 100% + 3px );
-				max-width: calc( 100% + 3px );
-			}
-		}
-
-		// Child blocks: Full alignment
-		// TODO: Figure out how to be less specific about this override.
-		> .editor-block-list__block-edit > div > .wp-block-section > .editor-inner-blocks > .editor-block-list__layout > .wp-block[data-align=full] {
-			position: relative;
-			padding-left: 0;
-			padding-right: 0;
-			max-width: calc( 100% + 14px);
-			left: -7px;
-
-			@include media(mobile) {
-				width: calc(125% + 119px);
-				left: calc(-12.5% - 58px);
-				max-width: calc(125% + 118px);
-			}
-		}
-
-		//Section block with background color
+		// Section block with background color
 		> .editor-block-list__block-edit > div > .wp-block-section.has-background {
 
-			//Child blocks: All alignments except full & wide
+			// Child blocks: All alignments except full & wide
 			> .editor-inner-blocks > .editor-block-list__layout > .wp-block:not([data-align="full"]):not([data-align="wide"]) {
 
 				@include media(tablet) {
