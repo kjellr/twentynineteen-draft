@@ -782,7 +782,7 @@
 
 	.wp-block-section {
 
-		// Inner Blocks don't inherit our default margins, so we need to add them here.
+		// Inner blocks don't inherit our default margins, so we need to add them here.
 		> * {
 			margin-top: 32px;
 			margin-bottom: 32px;
@@ -822,9 +822,14 @@
 			> *:not(.alignfull) {
 				margin-left: $size__spacing-unit;
 				margin-right: $size__spacing-unit;
-
 				@include postContentMaxWidth();
 
+				// Resets the width of cover blocks to prevent overflow
+				&.wp-block-cover {
+					width: initial;
+				}
+
+				// Slightly slimmer margins than $size__site-margins to prevent overflow
 				@include media(tablet) {
 					margin-left: calc( 10vw + 58px);
 					margin-right: calc( 10vw + 58px);

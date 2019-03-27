@@ -6033,6 +6033,19 @@ body.page .main-navigation {
   }
 }
 
+.entry .entry-content .wp-block-section > * {
+  margin-top: 32px;
+  margin-bottom: 32px;
+}
+
+.entry .entry-content .wp-block-section > *:first-child {
+  margin-top: 0;
+}
+
+.entry .entry-content .wp-block-section > *:last-child {
+  margin-bottom: 0;
+}
+
 .entry .entry-content .wp-block-section > .alignfull.wp-block-image img {
   max-width: 100%;
 }
@@ -6069,6 +6082,10 @@ body.page .main-navigation {
   .entry .entry-content .wp-block-section.alignfull > *:not(.alignfull) {
     max-width: calc(6 * (100vw / 12) - 28px);
   }
+}
+
+.entry .entry-content .wp-block-section.alignfull > *:not(.alignfull).wp-block-cover {
+  width: initial;
 }
 
 @media only screen and (min-width: 768px) {

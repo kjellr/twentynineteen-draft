@@ -742,12 +742,14 @@ ul.wp-block-archives,
 
 /** === Section Block === */
 
-// This matches the 22px value for 1rem that we use on the front end.
+// This matches the 22px value for 1rem that we use on the front end
+// It must be specified in pixels for the editor, since the root font 
+// size is different here. 
 $section-block-background__padding: $font__size_base;
 
 .wp-block[data-type="core/section"] {
 
-	// Section block base styles.
+	// Section block base styles
 	> .editor-block-list__block-edit > div > .wp-block-section {
 
 		// Child: Full alignment
@@ -813,12 +815,12 @@ $section-block-background__padding: $font__size_base;
 			max-width: calc( 125% + 114px);
 		}
 
-		// Section block base styles.
+		// Section block base styles
 		> .editor-block-list__block-edit > div > .wp-block-section {
 			padding-left: 0;
 			padding-right: 0;
 
-			// Inner blocks container width.
+			// Inner blocks container width
 			> .editor-inner-blocks {
 				padding-left: 14px;
 				padding-right: 14px;
@@ -827,8 +829,8 @@ $section-block-background__padding: $font__size_base;
 					width: 80%;
 					margin-left: 10%;
 					margin-right: 10%;
-					padding-left: 63px;
-					padding-right: 63px;
+					padding-left: 63px; // 1px smaller than the usual 64px, to prevent overflow.
+					padding-right: 63px; // 1px smaller than the usual 64px, to prevent overflow.
 				}
 
 				> .editor-block-list__layout {
