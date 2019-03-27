@@ -742,13 +742,13 @@ ul.wp-block-archives,
 
 /** === Section Block === */
 
+// This matches the 22px value for 1rem that we use on the front end.
+$section-block-background__padding: $font__size_base;
+
 .wp-block[data-type="core/section"] {
 
 	// Section block base styles.
 	> .editor-block-list__block-edit > div > .wp-block-section {
-		
-		// This matches the 22px value for 1rem that we use on the front end.
-		$section-block-background__padding: $font__size_base;
 
 		// Child: Full alignment
 		> .editor-inner-blocks > .editor-block-list__layout > .wp-block[data-align="full"] {
