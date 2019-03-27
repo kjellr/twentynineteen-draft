@@ -782,6 +782,20 @@
 
 	.wp-block-section {
 
+		// Inner Blocks don't inherit our default margins, so we need to add them here.
+		> * {
+			margin-top: 32px;
+			margin-bottom: 32px;
+
+			&:first-child {
+				margin-top: 0;
+			}
+
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+
 		// Child blocks: Full alignment
 		> .alignfull {
 
