@@ -748,16 +748,16 @@ ul.wp-block-archives,
 	$section-block-background__padding: $font__size_base;
 
 	// Child: Full alignment
-	.wp-block[data-align="full"] {
+	> .editor-block-list__block-edit > div > .wp-block-section > .editor-inner-blocks > .editor-block-list__layout > .wp-block[data-align="full"] {
 		left: 0;
 	}
 	
 	// Section block with background color
-	.wp-block-section.has-background {
+	> .editor-block-list__block-edit > div > .wp-block-section.has-background {
 		padding: $section-block-background__padding;
 
 		// Child: Full alignment
-		.wp-block[data-align="full"] {
+		> .editor-inner-blocks > .editor-block-list__layout > .wp-block[data-align="full"] {
 			left: -$section-block-background__padding;
 			width: calc( 100% + #{$section-block-background__padding * 2} );
 			max-width: calc( 100% + #{$section-block-background__padding * 2} );
@@ -768,7 +768,7 @@ ul.wp-block-archives,
 	&[data-align="wide"] {
 
 		// Child blocks: Default alignments
-		.wp-block:not([data-align="wide"]):not([data-align="full"]) {
+		> .editor-block-list__block-edit > div > .wp-block-section > .editor-inner-blocks > .editor-block-list__layout > .wp-block:not([data-align="wide"]):not([data-align="full"]) {
 			@include media(tablet) {
 				width: calc(8 * (100vw / 12) );
 			}
@@ -779,10 +779,10 @@ ul.wp-block-archives,
 		}
 
 		// Section block with background color
-		.wp-block-section.has-background {
+		> .editor-block-list__block-edit > div > .wp-block-section.has-background {
 			
 			// Child blocks: Default alignments
-			.wp-block:not([data-align="wide"]):not([data-align="full"]) {
+			> .editor-inner-blocks > .editor-block-list__layout > .wp-block:not([data-align="wide"]):not([data-align="full"]) {
 				@include media(tablet) {
 					width: calc(8 * (100vw / 12) - #{$section-block-background__padding * 2} );
 				}
@@ -805,7 +805,7 @@ ul.wp-block-archives,
 			max-width: calc( 125% + 114px);
 		}
 
-		.wp-block-section {
+		.editor-block-list__block-edit > div > .wp-block-section {
 			padding-left: 0;
 			padding-right: 0;
 		}
@@ -826,7 +826,7 @@ ul.wp-block-archives,
 		}
 
 		// Child blocks: All alignments except full
-		.wp-block:not([data-align="full"]) {
+		> .editor-block-list__block-edit > div > .wp-block-section > .editor-inner-blocks > .editor-block-list__layout > .wp-block:not([data-align="full"]) {
 
 			@include media(tablet) {
 				max-width: calc( #{$size__site-tablet-content} + 28px );
@@ -838,7 +838,7 @@ ul.wp-block-archives,
 		}
 
 		// Child blocks: Wide alignments
-		.wp-block[data-align="wide"] {
+		> .editor-block-list__block-edit > div > .wp-block-section > .editor-inner-blocks > .editor-block-list__layout > .wp-block[data-align="wide"] {
 			
 			// TODO: Figure out why this needs to be 3px.
 			@include media(tablet) {
@@ -864,10 +864,10 @@ ul.wp-block-archives,
 		}
 
 		//Section block with background color
-		.wp-block-section.has-background {
+		> .editor-block-list__block-edit > div > .wp-block-section.has-background {
 
 			//Child blocks: All alignments except full & wide
-			.wp-block:not([data-align="full"]):not([data-align="wide"]) {
+			> .editor-inner-blocks > .editor-block-list__layout > .wp-block:not([data-align="full"]):not([data-align="wide"]) {
 
 				@include media(tablet) {
 					max-width: calc( #{$size__site-tablet-content} + #{$section-block-background__padding} + 5px );
