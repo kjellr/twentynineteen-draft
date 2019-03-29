@@ -746,6 +746,7 @@ ul.wp-block-archives,
 // It must be specified in pixels for the editor, since the root font 
 // size is different here. 
 $section-block-background__padding: $font__size_base;
+$gutenberg-block__padding: 14px;
 
 .wp-block[data-type="core/section"] {
 
@@ -764,7 +765,7 @@ $section-block-background__padding: $font__size_base;
 
 		// Child: Full alignment
 		> .editor-inner-blocks > .editor-block-list__layout > .wp-block[data-align="full"] {
-			left: -$section-block-background__padding;
+			margin-left: -$section-block-background__padding;
 			width: calc( 100% + #{$section-block-background__padding * 2} );
 			max-width: calc( 100% + #{$section-block-background__padding * 2} );
 		}
@@ -822,15 +823,20 @@ $section-block-background__padding: $font__size_base;
 
 			// Inner blocks container width
 			> .editor-inner-blocks {
-				padding-left: 14px;
-				padding-right: 14px;
+				padding-left: $gutenberg-block__padding;
+				padding-right: $gutenberg-block__padding;
 
 				@include media(mobile) {
+					padding-left: calc( 60px - #{$gutenberg-block__padding});
+					padding-right: calc( 60px - #{$gutenberg-block__padding});
+				}
+
+				@include media(tablet) {
 					width: 80%;
 					margin-left: 10%;
 					margin-right: 10%;
-					padding-left: 63px; // 1px smaller than the usual 64px, to prevent overflow.
-					padding-right: 63px; // 1px smaller than the usual 64px, to prevent overflow.
+					padding-left: calc( 63px - #{$gutenberg-block__padding});
+					padding-right: calc( 63px - #{$gutenberg-block__padding});
 				}
 
 				> .editor-block-list__layout {
@@ -839,11 +845,11 @@ $section-block-background__padding: $font__size_base;
 					> .wp-block:not([data-align="full"]) {
 
 						@include media(tablet) {
-							max-width: calc( #{$size__site-tablet-content} + 28px );
+							max-width: calc( #{$size__site-tablet-content} + #{$gutenberg-block__padding * 2} );
 						}
 
 						@include media(desktop) {
-							max-width:  calc( #{$size__site-desktop-content} + 28px );
+							max-width:  calc( #{$size__site-desktop-content} + #{$gutenberg-block__padding * 2} );
 						}
 					}
 
@@ -862,13 +868,20 @@ $section-block-background__padding: $font__size_base;
 						position: relative;
 						padding-left: 0;
 						padding-right: 0;
-						max-width: calc( 100% + 14px);
-						left: -7px;
+						width: calc( 100% + #{$gutenberg-block__padding * 2} );
+						max-width: calc( 100% + #{$gutenberg-block__padding * 2} );
+						left: -14px;
 
 						@include media(mobile) {
-							width: calc(125% + 119px);
-							left: calc(-12.5% - 58px);
-							max-width: calc(125% + 118px); // Subtract 1px here to avoid the rounding errors that happen due to the usage of percentages.
+							width: calc( 100% + #{$gutenberg-block__padding * 2} + 64px );
+							max-width: calc( 100% + #{$gutenberg-block__padding * 2} + 64px );
+							left: -46px;
+						}
+
+						@include media(tablet) {
+							width: calc( 125% + 116px + 7px );
+							max-width: calc( 125% + 115px + 7px );
+							left: calc( -12.5% - #{$gutenberg-block__padding * 4} - 3px );
 						}
 					}
 				}
@@ -887,6 +900,15 @@ $section-block-background__padding: $font__size_base;
 
 				@include media(desktop) {
 					max-width:  calc( #{$size__site-desktop-content} + #{$section-block-background__padding} + 5px );
+				}
+			}
+
+			// Child blocks: Full alignment
+			> .editor-inner-blocks > .editor-block-list__layout > .wp-block[data-align="full"] {
+				margin-left: 0;
+
+				@include media(tablet) {
+					max-width: calc( 125% + 115px + 5px );
 				}
 			}
 		}
