@@ -765,8 +765,8 @@ $section-block-background__padding: $font__size_base;
 		// Child: Full alignment
 		> .editor-inner-blocks > .editor-block-list__layout > .wp-block[data-align="full"] {
 			margin-left: -$section-block-background__padding;
-			width: calc( 100% + #{$section-block-background__padding * 2} );
-			max-width: calc( 100% + #{$section-block-background__padding * 2} );
+			width: calc(100% + #{$section-block-background__padding * 2});
+			max-width: calc(100% + #{$section-block-background__padding * 2});
 		}
 	}
 
@@ -779,11 +779,11 @@ $section-block-background__padding: $font__size_base;
 			// Child blocks: Default alignments
 			> .editor-inner-blocks > .editor-block-list__layout > .wp-block:not([data-align="wide"]):not([data-align="full"]) {
 				@include media(tablet) {
-					width: calc(8 * (100vw / 12) );
+					width: calc(8 * (100vw / 12));
 				}
 
 				@include media(desktop) {
-					width: calc(6 * (100vw / 12 ) );
+					width: calc(6 * (100vw / 12 ));
 				}
 			}
 		}
@@ -794,11 +794,11 @@ $section-block-background__padding: $font__size_base;
 			// Child blocks: Default alignments
 			> .editor-inner-blocks > .editor-block-list__layout > .wp-block:not([data-align="wide"]):not([data-align="full"]) {
 				@include media(tablet) {
-					width: calc(8 * (100vw / 12) - #{$section-block-background__padding * 2} );
+					width: calc(8 * (100vw / 12) - #{$section-block-background__padding * 2});
 				}
 
 				@include media(desktop) {
-					width: calc(6 * (100vw / 12 ) - #{$section-block-background__padding * 2} );
+					width: calc(6 * (100vw / 12 ) - #{$section-block-background__padding * 2});
 				}
 			}
 		}
@@ -809,10 +809,10 @@ $section-block-background__padding: $font__size_base;
 
 		// Max-width needs to be a pixel narrower than usual to prevent horizontal scrolling.
 		@include media(mobile) {
-			max-width: calc( 100% + 89px);
+			max-width: calc(100% + 89px);
 		}
 		@include media(tablet) {
-			max-width: calc( 125% + 114px);
+			max-width: calc(125% + 114px);
 		}
 
 		// Section block base styles
@@ -857,8 +857,8 @@ $section-block-background__padding: $font__size_base;
 				> .wp-block[data-align="wide"] {
 
 					@include media(tablet) {
-						width: calc( 100% + 4px );
-						max-width: calc( 100% + 4px );
+						width: calc(100% + 4px);
+						max-width: calc(100% + 4px);
 					}
 				}
 
@@ -867,14 +867,14 @@ $section-block-background__padding: $font__size_base;
 					max-width: calc(100vw + (2 * 1rem));
 
 					@include media(mobile) {
-						width: calc( 100% + 92px );
+						width: calc(100% + 92px);
 						left: -46px;
 					}
 
 					@include media(tablet) {
-						left: calc( -12.5% - 58px );
-						width: calc( 125% + 120px );
-						max-width: calc( 125% + 119px );
+						left: calc(-12.5% - 58px);
+						width: calc(125% + 120px);
+						max-width: calc(125% + 119px);
 					}
 				}
 			}
@@ -898,11 +898,11 @@ $section-block-background__padding: $font__size_base;
 				width: 100%;
 
 				@include media(mobile) {
-					width: calc( 100% + 92px);
+					width: calc(100% + 92px);
 				}
 
 				@include media(tablet) {
-					width: calc( 125% + 120px );
+					width: calc(125% + 120px);
 				}
 			}
 		}
