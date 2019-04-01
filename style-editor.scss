@@ -742,7 +742,7 @@ ul.wp-block-archives,
 
 /** === Section Block === */
 
-// This matches the 22px value for 1rem that we use on the front end
+// This matches the 22px value for 1rem that used on the front end.
 // It must be specified in pixels for the editor, since the root font 
 // size is different here. 
 $section-block-background__padding: $font__size_base;
